@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#10070c">
+    <title>Для Розы ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<audio id="bg-music" src="music.mp3" preload="auto" loop></audio>
+
+<button id="music-toggle" class="music-toggle" aria-label="Музыка">♫</button>
+
+<main class="app">
+
+    <!-- 1. СЕКРЕТНОЕ СЛОВО -->
+    <section class="screen active" id="screen-password">
+        <div class="screen-content password-content">
+            <div class="paper-fox-welcome" aria-hidden="true"><span class="paper-fox fox-left"><img src="assets/paper-fox.svg" alt="" draggable="false"></span><span class="fox-paper-heart">♡</span><span class="paper-fox fox-right"><img src="assets/paper-fox.svg" alt="" draggable="false"></span></div>
+            <p class="small-title start-element start-1">для тебя кое-что есть</p>
+            <h1 class="start-element start-2">Эта эмоция закрыта словом</h1>
+            <p class="hint start-element start-3">кто ты у меня с ушками и хвостиком?</p>
+
+            <div class="password-box start-element start-4">
+                <input id="password-input" type="text" placeholder="слово" autocomplete="off">
+                <p class="error-message" id="password-error"></p>
+                <button class="main-button" id="password-button">Открыть</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. ИНТРО -->
+    <section class="screen" id="screen-message">
+        <div class="screen-content intro-content">
+            <p class="handwritten intro-name">Роза</p>
+            <h2 class="intro-title">тебе письмо ❤️</h2>
+        </div>
+    </section>
+
+    <!-- 3. КОНВЕРТ + ПИСЬМО -->
+    <section class="screen mail-screen" id="screen-envelope">
+        <div class="mail-scene" id="mail-scene">
+
+            <!-- Один и тот же лист: сначала сложен, потом выходит и раскрывается -->
+            <article class="fold-paper" id="fold-paper">
+                <div class="paper-half paper-bottom"></div>
+                <div class="paper-half paper-top"></div>
+                <div class="paper-crease"></div>
+
+                <div class="paper-content" id="paper-content">
+                    <p class="letter-top word-reveal">с любовью для Розы ❤️</p>
+                    <h2 class="word-reveal">Роза.</h2>
+
+                    <p class="word-reveal">У меня для тебя есть кое-что особенное.</p>
+
+                    <p class="word-reveal">
+                        Мне хотелось сделать для тебя не просто сообщение,
+                        а что-то, что останется в памяти и подарит тебе эмоцию.
+                    </p>
+
+                    <p class="word-reveal">
+                        Ты для меня очень важна. С тобой всё становится теплее,
+                        спокойнее и по-настоящему роднее.
+                    </p>
+
+                    <p class="word-reveal">
+                        Мне нравится видеть твою улыбку, слышать твой голос
+                        и просто знать, что ты есть у меня.
+                    </p>
+
+                    <p class="word-reveal">
+                        Поэтому я хочу подарить тебе не только слова,
+                        а ещё и маленький момент, который будет только нашим.
+                    </p>
+
+                    <p class="word-reveal">А теперь выбери, во сколько мне тебя забрать ❤️</p>
+                    <p class="signature word-reveal">Твой Валя ❤️</p>
+                </div>
+            </article>
+
+            <button class="envelope" id="envelope" aria-label="Открыть письмо">
+                <div class="envelope-base"></div>
+
+                <div class="envelope-front">
+                    <svg viewBox="0 0 600 360" preserveAspectRatio="none" aria-hidden="true">
+                        <path d="M0 65 L300 247 L600 65 L600 360 L0 360 Z" fill="#e9bec7" />
+                        <path d="M0 360 L220 180 L300 235 L380 180 L600 360 Z" fill="#f2ced4" />
+                        <path d="M0 65 L300 247 L600 65" fill="none" stroke="#d5a4ae" stroke-width="2" opacity="0.45" />
+                    </svg>
+                </div>
+
+                <div class="envelope-flap"></div>
+                <span class="envelope-name">Роза</span>
+                <span class="postmark">✉</span>
+                <span class="paper-fox fox-stamp" aria-hidden="true"><img src="assets/paper-fox.svg" alt="" draggable="false"></span>
+
+                <div class="wax-seal">
+                    <span class="seal-part seal-left"></span>
+                    <span class="seal-part seal-right"></span>
+                    <span class="seal-letter">R</span>
+                </div>
+            </button>
+
+            <p class="envelope-hint" id="envelope-hint">Открой, когда будешь готова</p>
+
+            <div class="letter-actions" id="letter-actions">
+                <button class="main-button" id="want-button">Хочу это ❤️</button>
+                <button class="secondary-button" id="no-button">Не хочу 👀</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. ВРЕМЯ -->
+    <section class="screen" id="screen-time">
+        <div class="screen-content time-screen-content">
+            <p class="handwritten">Наша встреча уже решена ❤️</p>
+            <h2>А во сколько мне тебя забрать? ❤️</h2>
+            <p class="selected-date" id="selected-date-text"></p>
+
+            <div class="time-picker">
+                <div class="time-picker-highlight"></div>
+
+                <div class="time-wheel" id="time-wheel">
+                    <div class="time-spacer"></div>
+                    <div class="time-option" data-time="15:00">15:00</div>
+                    <div class="time-option" data-time="15:30">15:30</div>
+                    <div class="time-option" data-time="16:00">16:00</div>
+                    <div class="time-option" data-time="16:30">16:30</div>
+                    <div class="time-option" data-time="17:00">17:00</div>
+                    <div class="time-option" data-time="17:30">17:30</div>
+                    <div class="time-option" data-time="18:00">18:00</div>
+                    <div class="time-option" data-time="18:30">18:30</div>
+                    <div class="time-option" data-time="19:00">19:00</div>
+                    <div class="time-option" data-time="19:30">19:30</div>
+                    <div class="time-option" data-time="20:00">20:00</div>
+                    <div class="time-spacer"></div>
+                </div>
+
+                <div class="time-fade time-fade-top"></div>
+                <div class="time-fade time-fade-bottom"></div>
+            </div>
+
+            <p class="time-picked-text">выбрано: <span id="time-picked-value">17:00</span></p>
+            <button class="main-button time-confirm-button" id="time-confirm-button">Выбрать это время ❤️</button>
+        </div>
+    </section>
+
+    <!-- 6. ПОДТВЕРЖДЕНИЕ -->
+    <section class="screen" id="screen-confirmation">
+        <div class="screen-content">
+            <p class="handwritten">Ну всё...</p>
+            <h2>Теперь пути назад нет 😉</h2>
+            <p class="confirmation-label">Ты выбрала:</p>
+
+            <div class="result-card">
+                <p><strong>Дата:</strong> <span id="result-date"></span></p>
+                <p><strong>Время:</strong> <span id="result-time"></span></p>
+            </div>
+
+            <button class="main-button" id="final-button">Дальше ❤️</button>
+        </div>
+    </section>
+
+    <!-- 7. ФИНАЛ -->
+    <section class="screen" id="screen-final">
+        <div class="screen-content reveal-final-content">
+            <p class="handwritten final-top-text">Тогда договорились ❤️</p>
+
+            <div class="countdown-card" id="countdown-card">
+                <p class="countdown-kicker">до нашей встречи осталось</p>
+
+                <div class="countdown-grid" id="countdown-grid">
+                    <div class="countdown-unit">
+                        <span class="countdown-value" id="countdown-days">00</span>
+                        <span class="countdown-label">дней</span>
+                    </div>
+                    <div class="countdown-unit">
+                        <span class="countdown-value" id="countdown-hours">00</span>
+                        <span class="countdown-label">часов</span>
+                    </div>
+                    <div class="countdown-unit">
+                        <span class="countdown-value" id="countdown-minutes">00</span>
+                        <span class="countdown-label">минут</span>
+                    </div>
+                    <div class="countdown-unit">
+                        <span class="countdown-value" id="countdown-seconds">00</span>
+                        <span class="countdown-label">секунд</span>
+                    </div>
+                </div>
+
+                <p class="countdown-finished" id="countdown-finished">Время пришло ❤️</p>
+            </div>
+
+            <div class="photo-reveal-stage" id="photo-reveal-stage" role="button" tabindex="0" aria-label="Раскрыть фотографию из сердечек">
+                <svg class="reveal-photo" id="reveal-photo" viewBox="0 0 360 450" role="img" aria-label="Наша фотография из сердечек">
+                    <defs>
+                        <mask id="photo-fragment-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="360" height="450" style="mask-type:alpha">
+                            <g id="photo-fragments"></g>
+                        </mask>
+                    </defs>
+                    <image href="photo.jpg" width="360" height="450" preserveAspectRatio="xMidYMid slice" mask="url(#photo-fragment-mask)" />
+                </svg>
+
+                <!-- Свечение как в референсе до первого нажатия -->
+                <div class="photo-glow" id="photo-glow"></div>
+
+                <div class="tap-instruction" id="tap-instruction">
+                    <span>нажимай — собирай сердечки</span>
+                </div>
+            </div>
+
+            <div class="reveal-counter" id="reveal-counter" aria-label="Собрано сердечек">0</div>
+
+            <p class="photo-caption" id="photo-caption">
+                9999 сердечек, чтобы показать, как ты мне дорога ❤️
+            </p>
+
+            <div class="final-booking-card">
+                <p class="booking-title">Уже договорились</p>
+                <p class="booking-subtitle">❤️ только ты и я</p>
+                <div class="booking-divider"></div>
+
+                <p class="booking-date">
+                    <span id="final-date">2 октября</span>
+                    <span class="booking-dot">•</span>
+                    <span id="final-time">17:00</span>
+                </p>
+
+                <p class="booking-bottom">остальное пока оставлю маленьким секретом</p>
+            </div>
+
+            <div class="paper-fox-finale" aria-hidden="true"><span class="paper-fox fox-left"><img src="assets/paper-fox.svg" alt="" draggable="false"></span><span class="fox-paper-heart">♡</span><span class="paper-fox fox-right"><img src="assets/paper-fox.svg" alt="" draggable="false"></span></div>
+
+            <p class="final-signature reveal-final-signature" id="reveal-final-signature">Твой Валя ❤️</p>
+        </div>
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

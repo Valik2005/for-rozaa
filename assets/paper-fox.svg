@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+ <defs>
+  <linearGradient id="paper" x2=".8" y2="1"><stop stop-color="#f4ba7e"/><stop offset="1" stop-color="#d97c4c"/></linearGradient>
+  <filter id="grain"><feTurbulence baseFrequency=".65" numOctaves="3" seed="8" type="fractalNoise"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".10"/></feComponentTransfer><feBlend in="SourceGraphic" mode="soft-light"/></filter>
+ </defs>
+ <g filter="url(#grain)" stroke-linejoin="round">
+  <!-- Each polygon is a separate fold of the same sheet. -->
+  <path d="M136 183 191 192 222 139 212 211 154 226 117 211Z" fill="#be6847"/>
+  <path d="M191 192 222 139 212 211Z" fill="#fff0d8"/>
+  <path d="M119 116 164 210 85 219 66 182Z" fill="url(#paper)"/>
+  <path d="M119 116 122 213 85 219Z" fill="#f4bc81"/>
+  <path d="M119 116 164 210 122 213Z" fill="#c9734b"/>
+  <path d="M90 168 73 216 110 213Z" fill="#ffe6be"/>
+  <path d="M140 175 122 213 155 213Z" fill="#efae73"/>
+  <path d="M45 36 95 62 152 59 186 29 175 104 121 151 60 104Z" fill="url(#paper)"/>
+  <path d="M45 36 60 104 95 62Z" fill="#d98458"/>
+  <path d="M54 49 63 85 82 64Z" fill="#71434a"/>
+  <path d="M152 59 186 29 175 104Z" fill="#f3b578"/>
+  <path d="M165 60 179 43 172 85Z" fill="#855047"/>
+  <path d="M60 104 121 151 99 91Z" fill="#fff1d9"/>
+  <path d="M175 104 121 151 140 90Z" fill="#f9dfba"/>
+  <path d="M95 62 121 151 152 59 140 90 121 114 99 91Z" fill="#e79860"/>
+  <path d="M112 137 130 137 121 151Z" fill="#513640"/>
+  <path d="m77 99 10 5m68-6-10 5" fill="none" stroke="#513640" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="m95 62 26 52 31-55M119 155l3 58M154 226l37-34" fill="none" stroke="#fff5de" stroke-opacity=".27" stroke-width="1"/>
+ </g>
+</svg>
